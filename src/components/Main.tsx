@@ -6,6 +6,10 @@ import Image2 from "../../public/images/image2.png";
 import Image3 from "../../public/images/image3.png";
 import Image4 from "../../public/images/image4.png";
 
+import Img1 from "../../public/images/img1.png";
+import Img2 from "../../public/images/img2.png";
+import Img3 from "../../public/images/img3.png";
+import Img4 from "../../public/images/img4.png";
 
 const Main = () => {
   const [active, setActive] = useState(0);
@@ -15,28 +19,32 @@ const Main = () => {
       description:
         " We're a premier general contracting firm recognised leader in Engineering Procurement, Construction, and Maintenance (E.P.C.M).",
       link: "/",
-      img: Image1,
+      img: Img1,
+      activeImg: Image1,
     },
     {
       title: "Labs",
       description:
         "We focus on bringing digital products (website, applications) from validation to success, optimising our unique expertise to create a product that fulfils your target customers' needs.",
       link: "/",
-      img: Image2,
+      img: Img2,
+      activeImg: Image2,
     },
     {
       title: "Lifestyle",
       description:
         " A beauty brand that embraces minimalism and natural beauty, providing a range of products that enhance individuals' everyday routines.",
       link: "/",
-      img: Image3,
+      img: Img3,
+      activeImg: Image3,
     },
     {
       title: "Foundation",
       description:
         "A non-profit that aims in creating a better life and living conditions for less privileged societal groups, socioeconomic institutions, and communities.",
       link: "/",
-      img: Image4,
+      img: Img4,
+      activeImg: Image4,
     },
   ];
   const handleMouseEnter = (val: number) => {
@@ -47,6 +55,35 @@ const Main = () => {
     setActive(0);
   };
   return (
+    // <div className="image-container">
+    //   <div className="wrap">
+    //     {companies.map((company, idx) => (
+    //       <div
+    //         className={`card card${idx + 1} ${active === idx && "active"}`}
+    //         onMouseEnter={() => handleMouseEnter(idx)}
+    //         onMouseLeave={() => handleMouseLeave()}
+    //       >
+    //         <div className="overlay"></div>
+    //         <article>
+    //           <Image
+    //             src={company?.img}
+    //             width={200}
+    //             height={200}
+    //             alt="Picture of the author"
+    //             className="bg_img"
+    //           />
+    //           <div className="textWrap">
+    //             {active === idx && <h3>{company.title}</h3>}
+    //             {active === idx && <p>{company.description}</p>}
+    //             {/* <h3>{company.title}</h3>
+    //             <p>{company.description}</p> */}
+    //           </div>
+    //         </article>
+    //       </div>
+    //     ))}
+    //   </div>
+    // </div>
+
     <div className="image-container">
       <div className="wrap">
         {companies.map((company, idx) => (
@@ -55,9 +92,10 @@ const Main = () => {
             onMouseEnter={() => handleMouseEnter(idx)}
             onMouseLeave={() => handleMouseLeave()}
           >
-            <Link href="/development">
+            <div className="overlay"></div>
+            <article>
               <Image
-                src={company?.img}
+                src={company?.activeImg}
                 width={200}
                 height={200}
                 alt="Picture of the author"
@@ -66,10 +104,8 @@ const Main = () => {
               <div className="textWrap">
                 {active === idx && <h3>{company.title}</h3>}
                 {active === idx && <p>{company.description}</p>}
-                {/* <h3>{company.title}</h3>
-                <p>{company.description}</p> */}
               </div>
-            </Link>
+            </article>
           </div>
         ))}
       </div>

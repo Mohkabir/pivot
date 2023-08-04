@@ -2,12 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-} */
-
 @font-face {
   font-family: "DMSans";
   src: url("../../public/fonts/DM_Sans/DMSans-Regular.ttf");
@@ -39,7 +33,21 @@ h4 {
 .home {
   background-color: #000000;
   color: #ffffff;
-  height: 100vh;
+  /* height: 100vh;
+  height: 500px;
+  outline: 1px solid red; */
+  /* height: 80px; */
+  margin: 0 auto;
+  margin-top: 2px;
+  width: 100%;
+
+  /* background-color: blue; */
+}
+.image-container .wrap {
+  width: 95%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
 }
 
 .image-container .wrap {
@@ -47,10 +55,10 @@ h4 {
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
-  height: 88vh;
+  /* height: 500px; */
 }
 
-.image-container .wrap .card a {
+.image-container .wrap .card article {
   /* border: 1px solid yellow; */
   /* display: block; */
   width: 100%;
@@ -58,18 +66,31 @@ h4 {
   display: flex;
   align-items: flex-end;
 }
-.image-container .wrap .card a div {
+
+.image-container .wrap .card article div {
   width: 80%;
   margin: 0 auto;
   font-size: 14px;
   /* margin-bottom: 8vh; */
   height: 170px;
 }
-.image-container .wrap .card a div h3 {
+
+.image-container .overlay {
+  background-color: rgba(0, 0, 0, 0.7);
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 3;
+}
+
+.image-container .wrap .card article div h3 {
   font-size: 20px;
   font-weight: 600;
   margin-bottom: 0.8rem;
 }
+
 .image-container img {
   height: 100%;
   width: 200px;
@@ -79,48 +100,25 @@ h4 {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 90%;
   width: 87%;
-
   margin: 0 auto;
   padding: 20px 0;
 }
-.card {
-  /* background-image: url("../../public/images/image1.png"); */
-  background-repeat: no-repeat;
-  background-position: bottom;
-  background-size: cover;
-}
-/* .card1 {
-  background-image: url("../../public/images/image1.png");
-}
-.card2 {
-  background-image: url("../../public/images/image2.png");
-}
-.card3 {
-  background-image: url("../../public/images/image3.png");
-}
-.card4 {
-  background-image: url("../../public/images/image4.png");
-} */
 
 .card {
-  transition: all ease-in-out 300ms;
-  transition-delay: 200ms;
-  width: 20%;
-  height: 91vh;
-  /* outline: 1px solid red; */
-  /* outline: 1px solid #000000; */
-
+  transition: all ease-in-out 600ms;
+  transition-delay: 100ms;
+  height: 90vh;
   position: relative;
+  overflow: hidden !important;
+  overflow: hidden;
+  width: 25%;
+  top: 0;
+  border: 2px solid #000000;
 }
-.card img {
-  border: 1px solid #000000;
-  /* object-fit: contain;
-  object-fit: cover;
-  object-fit: fill;
-  object-fit: scale-down; */
 
+.card img {
+  /* border: 1px solid #000000; */
   position: absolute;
   top: 0;
   left: 0;
@@ -129,37 +127,61 @@ h4 {
 }
 
 @keyframes loadText {
-  from {
+  0% {
     visibility: hidden;
   }
-  to {
+  70% {
+    visibility: hidden;
+  }
+  100% {
     visibility: visible;
   }
 }
 
 .card .textWrap {
   visibility: hidden;
-  z-index: 2;
+  z-index: 4;
 }
-.active {
-  width: 40%;
+.card .overlay {
+  transition: all ease-in-out 600ms;
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 0.6993391106442577) 50%
+  );
+}
+
+.active .overlay {
+  background-color: rgba(0, 0, 0, 0.3);
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    0deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(255, 255, 255, 0) 50%
+  );
+
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 3;
 }
 
 .active .textWrap {
   animation: loadText;
-  animation-duration: 1s;
-  animation-delay: 550ms;
-  animation-timing-function: ease-in-out;
+  animation-duration: 600ms;
+  animation-delay: 200ms;
+  animation-timing-function: ease-in;
   animation-fill-mode: forwards;
 }
 
-.coming_soon {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.coming_soon h1 {
-  font-size: 4rem;
+@media (max-width: 670px) {
+  .image-container .wrap {
+    flex-direction: column;
+  }
+  .card {
+    width: 100%;
+  }
 }
