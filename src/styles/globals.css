@@ -100,9 +100,36 @@ h4 {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 87%;
+  width: 95%;
   margin: 0 auto;
-  padding: 20px 0;
+  padding: 10px 0;
+}
+
+.heading .wrap .box1 {
+  width: 50%;
+}
+
+.wrapContact {
+  position: relative;
+}
+
+.wrapContact button {
+  padding: 0.8rem 1rem;
+}
+
+.con {
+  position: absolute;
+  top: 62px;
+  left: -120px;
+  display: flex;
+  flex-direction: column;
+  z-index: 5;
+  width: 240px;
+  background-color: #000000;
+}
+
+.con a {
+  padding: 1rem 1.5rem;
 }
 
 .card {
@@ -114,11 +141,10 @@ h4 {
   overflow: hidden;
   width: 25%;
   top: 0;
-  border: 2px solid #000000;
+  border: 5px solid #000000;
 }
 
 .card img {
-  /* border: 1px solid #000000; */
   position: absolute;
   top: 0;
   left: 0;
@@ -138,28 +164,60 @@ h4 {
   }
 }
 
+@keyframes loadOverlay {
+  0% {
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+  /* 40% {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+  70% {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+  */
+  80% {
+    background-color: rgba(0, 0, 0, 0.3);
+    /* background: linear-gradient(
+      0deg,
+      rgba(2, 0, 36, 1) 0%,
+      rgba(255, 255, 255, 0) 40%
+    ); */
+  }
+  100% {
+    background-color: rgba(0, 0, 0, 0.1);
+    /* background: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 1) 0%,
+      rgba(0, 0, 0, 0) 40%
+    ); */
+  }
+}
+
 .card .textWrap {
   visibility: hidden;
   z-index: 4;
 }
 .card .overlay {
-  transition: all ease-in-out 600ms;
-  background: rgb(0, 0, 0);
+  /* transition: all ease-in-out 1s; */
+  background-color: rgba(0, 0, 0, 0.7);
+  /* background: rgb(0, 0, 0);
   background: linear-gradient(
     0deg,
     rgba(0, 0, 0, 1) 0%,
     rgba(0, 0, 0, 0.6993391106442577) 50%
-  );
+  ); */
 }
 
 .active .overlay {
-  background-color: rgba(0, 0, 0, 0.3);
-  background: rgb(2, 0, 36);
-  background: linear-gradient(
+  /* background-color: rgba(0, 0, 0, 0.5); */
+
+  /* background-color: rgba(0, 0, 0, 0.3); */
+  /* background: rgb(2, 0, 36); */
+  /* background: linear-gradient(
     0deg,
     rgba(2, 0, 36, 1) 0%,
     rgba(255, 255, 255, 0) 50%
-  );
+  ); */
 
   height: 100%;
   width: 100%;
@@ -167,6 +225,12 @@ h4 {
   top: 0;
   left: 0;
   z-index: 3;
+
+  animation: loadOverlay;
+  animation-duration: 600ms;
+  /* animation-delay: 200ms; */
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
 }
 
 .active .textWrap {
