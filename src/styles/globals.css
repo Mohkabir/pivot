@@ -33,16 +33,13 @@ h4 {
 .home {
   background-color: #000000;
   color: #ffffff;
-  /* height: 100vh;
-  height: 500px;
-  outline: 1px solid red; */
-  /* height: 80px; */
   margin: 0 auto;
   margin-top: 2px;
   width: 100%;
-
-  /* background-color: blue; */
+  position: relative;
+  max-width: 1440px;
 }
+
 .image-container .wrap {
   width: 95%;
   margin: 0 auto;
@@ -59,8 +56,6 @@ h4 {
 }
 
 .image-container .wrap .card article {
-  /* border: 1px solid yellow; */
-  /* display: block; */
   width: 100%;
   height: 100%;
   display: flex;
@@ -71,7 +66,6 @@ h4 {
   width: 80%;
   margin: 0 auto;
   font-size: 14px;
-  /* margin-bottom: 8vh; */
   height: 170px;
 }
 
@@ -115,6 +109,7 @@ h4 {
 
 .wrapContact button {
   padding: 0.8rem 1rem;
+  text-align: right;
 }
 
 .con {
@@ -134,12 +129,13 @@ h4 {
 
 .card {
   transition: all ease-in-out 600ms;
-  transition-delay: 100ms;
-  height: 90vh;
+
+  height: 600px;
   position: relative;
-  overflow: hidden !important;
-  overflow: hidden;
+
   width: 25%;
+  width: 349px;
+  min-width: 349px;
   top: 0;
   border: 5px solid #000000;
 }
@@ -209,23 +205,12 @@ h4 {
 }
 
 .active .overlay {
-  /* background-color: rgba(0, 0, 0, 0.5); */
-
-  /* background-color: rgba(0, 0, 0, 0.3); */
-  /* background: rgb(2, 0, 36); */
-  /* background: linear-gradient(
-    0deg,
-    rgba(2, 0, 36, 1) 0%,
-    rgba(255, 255, 255, 0) 50%
-  ); */
-
   height: 100%;
   width: 100%;
   position: absolute;
   top: 0;
   left: 0;
   z-index: 3;
-
   animation: loadOverlay;
   animation-duration: 600ms;
   /* animation-delay: 200ms; */
@@ -236,16 +221,50 @@ h4 {
 .active .textWrap {
   animation: loadText;
   animation-duration: 600ms;
-  animation-delay: 200ms;
+  /* animation-delay: 200ms; */
   animation-timing-function: ease-in;
   animation-fill-mode: forwards;
 }
 
 @media (max-width: 670px) {
+  .heading {
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 50;
+    background-color: #000000;
+  }
+  .heading .wrap {
+    width: 90%;
+  }
   .image-container .wrap {
     flex-direction: column;
+    width: 90%;
   }
   .card {
     width: 100%;
+    /* margin-bottom: 0rem; */
+    height: 80vh;
+  }
+
+  .image-container .wrap .card article div {
+    height: 190px;
+  }
+  .wrapContact button {
+    padding: 0.8rem 0rem;
+  }
+
+  .con {
+    position: absolute;
+    top: 62px;
+    left: -160px;
+    display: flex;
+    flex-direction: column;
+    width: 240px;
+    background-color: #000000;
+  }
+
+  .con a {
+    padding: 1rem 1.5rem;
   }
 }

@@ -24,7 +24,6 @@ const Header = () => {
             {toggle && (
               <div className="con">
                 <a href="tel:+2347031356201">m: +234 703 135 6201</a>
-                {/* <Link href="mailto:">e: pivotgr@gmail.com</Link> */}
                 <a href="mailto:pivotgr@gmail.com">e: pivotgr@gmail.com</a>
               </div>
             )}
