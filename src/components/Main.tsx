@@ -15,9 +15,9 @@ const Main = () => {
   const [active, setActive] = useState(0);
   const companies = [
     {
-      title: "Contracting",
+      title: "Arch",
       description:
-        " We're a premier general contracting firm recognised leader in Engineering Procurement, Construction, and Maintenance (E.P.C.M).",
+        "We're building excellence from the ground up. Discover apt construction engineering, procurement solutions, innovative interiors, and top-notch maintenance services.",
       link: "/",
       img: Img1,
       activeImg: Image1,
@@ -25,7 +25,7 @@ const Main = () => {
     {
       title: "Labs",
       description:
-        "We focus on bringing digital products (website, applications) from validation to success, optimising our unique expertise to create a product that fulfils your target customers' needs.",
+        "Experience innovation through technology and software development by crafting web, mobile, and desktop applications and enterprise solutions, to reshape your digital landscape.",
       link: "/",
       img: Img2,
       activeImg: Image2,
@@ -33,7 +33,7 @@ const Main = () => {
     {
       title: "Lifestyle",
       description:
-        " A beauty brand that embraces minimalism and natural beauty, providing a range of products that enhance individuals' everyday routines.",
+        "Explore the perfect fusion of fashion, interior design, and artisanal furniture craftsmanship, elevating your style and home spaces with our curated collection of trendsetting designs",
       link: "/",
       img: Img3,
       activeImg: Image3,
@@ -55,35 +55,6 @@ const Main = () => {
     setActive(0);
   };
   return (
-    // <div className="image-container">
-    //   <div className="wrap">
-    //     {companies.map((company, idx) => (
-    //       <div
-    //         className={`card card${idx + 1} ${active === idx && "active"}`}
-    //         onMouseEnter={() => handleMouseEnter(idx)}
-    //         onMouseLeave={() => handleMouseLeave()}
-    //       >
-    //         <div className="overlay"></div>
-    //         <article>
-    //           <Image
-    //             src={company?.img}
-    //             width={200}
-    //             height={200}
-    //             alt="Picture of the author"
-    //             className="bg_img"
-    //           />
-    //           <div className="textWrap">
-    //             {active === idx && <h3>{company.title}</h3>}
-    //             {active === idx && <p>{company.description}</p>}
-    //             {/* <h3>{company.title}</h3>
-    //             <p>{company.description}</p> */}
-    //           </div>
-    //         </article>
-    //       </div>
-    //     ))}
-    //   </div>
-    // </div>
-
     <div className="image-container">
       <div className="wrap">
         {companies.map((company, idx) => (
